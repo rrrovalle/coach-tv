@@ -25,12 +25,12 @@ public class MentoringDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mentoring_details);
+        setContentView(R.layout.mentoring_details_card);
 
         txtCourse = findViewById(R.id.idCourseName);
         txtDesc = findViewById(R.id.idDesc);
         txtSection = findViewById(R.id.idSection);
-        txtRate = findViewById(R.id.idTVCourseRating);
+        //txtRate = findViewById(R.id.idTVCourseRating);
 
         Intent iin= getIntent();
         Bundle b = iin.getExtras();
@@ -40,7 +40,7 @@ public class MentoringDetails extends AppCompatActivity {
             String name = (String) b.get("STRING_NAME");
             String section = (String) b.get("STRING_SECTION");
             String obs  = (String) b.get("STRING_DESC");
-            int rate = (int) b.get("INT_RATE");
+            //int rate = (int) b.get("INT_RATE");
 
             txtCourse.setText(name);
             txtSection.setText(section);
@@ -54,16 +54,15 @@ public class MentoringDetails extends AppCompatActivity {
 
     private void initComponents(){
         btnSave         = findViewById(R.id.btnBuy);
-        //imgScreenReturn = findViewById(R.id.imgScreenReturn);
+        imgScreenReturn = findViewById(R.id.imgReturn);
     }
 
     private void addListeners(){
         btnSave.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MeetingFragment.class);
-            startActivity(intent);
+            startActivity(new Intent(this, AppActivity.class));
         });
-//        imgScreenReturn.setOnClickListener(v -> {
-//            startActivity(new Intent(this, AppActivity.class));
-//        });
+        imgScreenReturn.setOnClickListener(v -> {
+            startActivity(new Intent(this, AppActivity.class));
+        });
     }
 }

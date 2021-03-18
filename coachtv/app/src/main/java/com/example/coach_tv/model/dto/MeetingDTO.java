@@ -4,7 +4,6 @@ import com.google.gson.GsonBuilder;
 
 public class MeetingDTO {
 
-    private int id;
     private int image;
     private int credits;
     private String date;

@@ -9,14 +9,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coach_tv.fragment.MeetingFragment;
+
 public class MeetingDetails extends AppCompatActivity {
 
-    private Button btnSave;
+    private Button btnJoin;
     private ImageView imgScreenReturn;
 
     private TextView txtCourse;
     private TextView txtObservations;
-    private EditText edtDate;
+    private TextView edtDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +44,19 @@ public class MeetingDetails extends AppCompatActivity {
     }
 
     private void initComponents(){
-        btnSave         = findViewById(R.id.btnBuy);
-        //imgScreenReturn = findViewById(R.id.imgScreenReturn);
+        btnJoin         = findViewById(R.id.btnJoin);
+        imgScreenReturn = findViewById(R.id.imgScreenReturn);
     }
 
     private void addListeners(){
 
-        btnSave.setOnClickListener(v -> {
+        btnJoin.setOnClickListener(v -> {
             Intent intent = new Intent(this, AppActivity.class);
             startActivity(intent);
         });
-
-//        imgScreenReturn.setOnClickListener(v -> {
-//            startActivity(new Intent(this, AppActivity.class));
-//        });
+        imgScreenReturn.setOnClickListener(v -> {
+            Intent intent = new Intent(MeetingDetails.this, MeetingFragment.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); finish();
+        });
     }
 }

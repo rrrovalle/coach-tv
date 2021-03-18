@@ -3,17 +3,24 @@ package com.example.coach_tv.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.coach_tv.AppActivity;
 import com.example.coach_tv.CourseManagerActivity;
 import com.example.coach_tv.R;
 import com.example.coach_tv.adapter.MentoringAdapter;
@@ -24,7 +31,8 @@ import java.util.ArrayList;
 public class MentoringFragment extends Fragment {
 
     private RecyclerView mentoringRV;
-    private ImageView add;
+    private Button add;
+    private TextView editMentoring;
 
     // Arraylist for storing data
     private ArrayList<Mentoring> mentoringArrayList;
@@ -52,8 +60,8 @@ public class MentoringFragment extends Fragment {
     }
 
     private void initComponents(){
-        add = getActivity().findViewById(R.id.idAddCourse);
-        mentoringRV  = getActivity().findViewById(R.id.idMentoringRV);
+        add           = getActivity().findViewById(R.id.idAddCourse);
+        mentoringRV   = getActivity().findViewById(R.id.idMentoringRV);
     }
 
     private void addListeners(){

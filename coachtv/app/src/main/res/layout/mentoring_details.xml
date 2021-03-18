@@ -11,34 +11,15 @@
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
-    <!--
-        In the above cardview widget
-        cardelevation property will give elevation to your card view
-        card corner radius will provide radius to your card view
-        card background color will give background color to your card view
-        card max elevation will give the cardview maximum elevation
-        card prevent corner overlap will add padding to CardView on v20 and
-        before to prevent intersections between the Card content and rounded corners.
-        card use compact padding will add padding in API v21+ as well to have the same
-        measurements with previous versions.
-    -->
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="518dp">
 
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/imgScreenReturn"-->
-        <!--            android:layout_width="30dp"-->
-        <!--            android:layout_height="30dp"-->
-        <!--            android:src="@drawable/new_arrow" />-->
-
         <TextView
             android:id="@+id/idCourseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imgScreenReturn"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
@@ -52,7 +33,6 @@
             android:id="@+id/idCreditsTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imgScreenReturn"
             android:layout_alignParentRight="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
@@ -132,7 +112,15 @@
             android:layout_width="match_parent"
             android:layout_height="21dp"
             android:layout_below="@+id/idMeetingDetails"
-            android:layout_marginTop="2dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="-3dp"
+            android:layout_marginLeft="-3dp"
+            android:layout_marginTop="-18dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
             android:ems="@integer/config_navAnimTime"
             android:inputType="textMultiLine" />
 
@@ -264,7 +252,7 @@
             android:gravity="center"
             android:paddingRight="10dp"
             android:text="Buy"
-            app:backgroundTint="#F29F9F" />
+            app:backgroundTint="@color/btnGreen" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

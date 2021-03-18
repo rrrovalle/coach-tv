@@ -8,4 +8,7 @@
     <string name="course_price">500/h</string>
     <string name="course_desc">A course description is a brief summary of the significant learning experiences for a course.</string>
     <string name="course_obs">Noticing, perception, helpfulness, measurement, scrutiny, check, cognizance, mark, note, regard and comment.</string>
+    <string name="edit_mentoring">...</string>
+    <string name="disable">Disable Mentoring</string>
+
 </resources>

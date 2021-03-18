@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -32,11 +31,15 @@
 
         <TextView
             android:id="@+id/idSchedule"
-            android:layout_width="wrap_content"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="222dp"
+            android:layout_marginRight="222dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Schedule"
             android:textColor="@color/black"
@@ -49,18 +52,28 @@
             android:layout_width="match_parent"
             android:layout_height="21dp"
             android:layout_below="@id/idSchedule"
-            android:layout_marginTop="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-12dp"
+            android:layout_marginEnd="-2dp"
+            android:layout_marginRight="-2dp"
             android:ems="@integer/config_navAnimTime"
             android:inputType="textMultiLine" />
 
         <TextView
             android:id="@+id/idUser"
-            android:layout_width="wrap_content"
+            android:layout_width="195dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/line_1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="172dp"
+            android:layout_marginRight="172dp"
             android:drawablePadding="10dp"
             android:ellipsize="end"
             android:maxLines="3"
@@ -91,7 +104,7 @@
             android:fontFamily="@font/poppins_medium"
             android:text="Will start at" />
 
-        <EditText
+        <TextView
             android:id="@+id/idStartTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +115,7 @@
             android:layout_toRightOf="@id/idStart"
             android:background="@drawable/input_bg"
             android:enabled="false"
-            android:text="      " />
+            android:text="       " />
 
         <TextView
             android:id="@+id/idFinish"
@@ -116,7 +129,7 @@
             android:fontFamily="@font/poppins_medium"
             android:text="and last till" />
 
-        <EditText
+        <TextView
             android:id="@+id/idFinishTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,7 +140,7 @@
             android:layout_toRightOf="@id/idFinish"
             android:background="@drawable/input_bg"
             android:enabled="false"
-            android:text="      " />
+            android:text="       " />
 
         <TextView
             android:id="@+id/idDetails"
@@ -167,37 +180,54 @@
             android:inputType="textMultiLine" />
 
         <TextView
-            android:id="@+id/idTxtPrice"
-            android:layout_width="wrap_content"
+            android:id="@+id/totalCredits"
+            android:layout_width="87dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/line_3"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="-11dp"
+            android:layout_marginLeft="-11dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="255dp"
+            android:layout_marginRight="255dp"
+            android:layout_toEndOf="@+id/idTxtPrice"
+            android:layout_toRightOf="@+id/idTxtPrice"
+            android:fontFamily="@font/poppins_medium"
+            android:text="500/h" />
+
+        <TextView
+            android:id="@+id/idTxtPrice"
+            android:layout_width="42dp"
+            android:layout_height="18dp"
             android:layout_below="@id/line_3"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="end"
             android:paddingRight="30dp"
-            android:text="@string/course_price"
             android:textSize="18dp"
             app:drawableStartCompat="@drawable/ic_credit" />
 
         <Button
-            android:id="@+id/btnBuy"
-            android:layout_width="70dp"
-            android:layout_height="35dp"
-            android:layout_below="@id/line_3"
+            android:id="@+id/btnJoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line_3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/btn_bg"
-            android:gravity="center"
-            android:paddingRight="10dp"
-            android:text="JOIN"
-            app:backgroundTint="#F29F9F" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="267dp"
+            android:layout_marginLeft="267dp"
+            android:layout_marginTop="-6dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:text="Join"
+            android:textColor="#fff"
+            app:backgroundTint="@color/btnGreen" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

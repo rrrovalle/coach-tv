@@ -11,4 +11,11 @@
 
     <color name="color1">#FF018786</color>
     <color name="color2">#FF018786</color>
+
+    <color name="colorPrimary">#FBB034</color>
+    <color name="colorPrimaryDark">#FFDD00</color>
+    <color name="colorAccent">#FBB034</color>
+    <color name="colorText">#504F60</color>
+    <color name="btnGreen">#3f9785</color>
+    <color name="startblue">#09c6df</color>
 </resources>
