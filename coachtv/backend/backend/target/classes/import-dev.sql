@@ -1,0 +1,1 @@
+insert into Person (id, email, password, name) values (1, "gui@hotmail.com", "123", "Guilherme");
