@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 public class UserDTO {
 
-    private long id;
-
     private String email;
 
     private String password;
@@ -24,26 +22,10 @@ public class UserDTO {
         this.credits = credits;
     }
 
-    public UserDTO(long id, String email, String name, LocalDate birthday, int credits) {
-        this.id = id;
-        this.email = email;
-        this.name = name;
-        this.birthday = birthday;
-        this.credits = credits;
-    }
-
     public UserDTO() {
     }
 
     public UserDTO(String userDto) {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getEmail() {

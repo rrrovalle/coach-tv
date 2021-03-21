@@ -1,7 +1,5 @@
 package udesc.pin3.User;
 
-import io.netty.handler.codec.http.HttpResponseStatus;
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -17,17 +15,6 @@ public class UserResource {
     public Response registerUser(UserDTO user) {
         userService.registerUser(user);
         return Response.ok().build();
-    }
-
-    @POST
-    @Path("login")
-    public Response login(UserDTO dto) {
-        dto = userService.login(dto);
-        if (dto == null) {
-            return Response.status(HttpResponseStatus.BAD_REQUEST.code()).build();
-        } else {
-            return Response.ok(dto).build();
-        }
     }
 
     @GET

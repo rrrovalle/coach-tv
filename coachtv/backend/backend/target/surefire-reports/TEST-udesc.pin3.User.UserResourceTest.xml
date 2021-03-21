@@ -4,7 +4,7 @@
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.10+9-Ubuntu-0ubuntu1.20.04"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/guilherme/Documentos/UDESC/PIN3/coach-tv"/>
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,7 +14,7 @@
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend"/>
+    <property name="user.dir" value="/home/guilherme/Documentos/UDESC/PIN3/coach-tv"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="11.0.10+9-Ubuntu-0ubuntu1.20.04"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
@@ -32,17 +32,18 @@
     <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.8.0-45-generic"/>
+    <property name="os.version" value="5.8.0-44-generic"/>
     <property name="user.home" value="/home/guilherme"/>
     <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="11"/>
+    <property name="quarkus.profile" value="dev"/>
     <property name="user.name" value="guilherme"/>
-    <property name="java.class.path" value="/home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/.mvn/wrapper/maven-wrapper.jar"/>
+    <property name="java.class.path" value="/home/guilherme/Documentos/UDESC/PIN3/coach-tv/.mvn/wrapper/maven-wrapper.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.apache.maven.wrapper.MavenWrapperMain clean package"/>
+    <property name="sun.java.command" value="org.apache.maven.wrapper.MavenWrapperMain package -Dquarkus.profile=dev"/>
     <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
     <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>

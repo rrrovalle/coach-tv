@@ -1,6 +1,7 @@
 package udesc.pin3.User;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.Header;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.HttpHeaders;
@@ -25,31 +26,9 @@ public class UserResourceTest {
     }
 
     @Test
-    public void failLoginTest() {
-        UserDTO dto = new UserDTO();
-        dto.setPassword("wrong password");
-        dto.setEmail("guilherme@hotmail.com");
-
+    public void loginUserTest() {
         given()
-                .when()
-                .body(dto)
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-                .post("/api/user/login")
-                .then()
-                .statusCode(400);
-    }
-
-    @Test
-    public void loginSuccessfulTest() {
-        UserDTO dto = new UserDTO();
-        dto.setPassword("123");
-        dto.setEmail("guilherme@hotmail.com");
-
-        given()
-                .when()
-                .body(dto)
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-                .post("/api/user/login")
+                .when().post("/api/user/login")
                 .then()
                 .statusCode(200);
     }
