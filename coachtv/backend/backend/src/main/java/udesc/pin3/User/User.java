@@ -24,7 +24,7 @@ public class User extends PanacheEntity {
     public User() {
     }
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String password;

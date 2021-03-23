@@ -1,4 +1,4 @@
-package udesc.pin3;
+package udesc.pin3.User;
 
 import io.quarkus.test.junit.NativeImageTest;
 import udesc.pin3.User.UserResourceTest;
