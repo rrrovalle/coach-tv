@@ -1,6 +1,7 @@
 udesc/pin3/User/UserDTO.class
 udesc/pin3/User/UserResource.class
 udesc/pin3/Mentoring/MentoringService.class
+udesc/pin3/Mentoring/MentoringSections.class
 udesc/pin3/Mentoring/MentoringResource.class
 udesc/pin3/Mentoring/Mentoring.class
 udesc/pin3/User/UserService.class
