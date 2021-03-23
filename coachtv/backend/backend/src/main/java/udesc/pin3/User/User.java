@@ -3,6 +3,7 @@ package udesc.pin3.User;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import udesc.pin3.Mentoring.Mentoring;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.time.LocalDate;
@@ -20,8 +21,10 @@ public class User extends PanacheEntity {
         this.credits = dto.getCredits();
     }
 
-    public User() {}
+    public User() {
+    }
 
+    @Column(unique = true)
     private String email;
 
     private String password;

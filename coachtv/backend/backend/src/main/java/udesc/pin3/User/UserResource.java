@@ -24,7 +24,10 @@ public class UserResource {
     public Response login(UserDTO dto) {
         dto = userService.login(dto);
         if (dto == null) {
-            return Response.status(HttpResponseStatus.BAD_REQUEST.code()).build();
+            return Response
+                    .status(HttpResponseStatus.BAD_REQUEST.code())
+                    .entity("E-mail ou senha incorreto. Tente novamente!")
+                    .build();
         } else {
             return Response.ok(dto).build();
         }
