@@ -32,6 +32,18 @@ public class UserDTO {
         this.credits = credits;
     }
 
+    public UserDTO(long id) {
+        this.id = id;
+    }
+
+    public UserDTO(User user){
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.name = user.getName();
+        this.birthday = user.getBirthday();
+        this.credits = user.getCredits();
+    }
+
     public UserDTO() {
     }
 

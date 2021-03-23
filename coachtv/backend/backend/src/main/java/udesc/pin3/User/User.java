@@ -1,9 +1,14 @@
 package udesc.pin3.User;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import udesc.pin3.Mentoring.Mentoring;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "Person")
 public class User extends PanacheEntity {
@@ -16,8 +21,10 @@ public class User extends PanacheEntity {
         this.credits = dto.getCredits();
     }
 
-    public User() {}
+    public User() {
+    }
 
+    @Column(unique = true, nullable = false)
     private String email;
 
     private String password;
@@ -27,6 +34,9 @@ public class User extends PanacheEntity {
     private LocalDate birthday;
 
     private int credits;
+
+    @OneToMany(mappedBy = "coach")
+    private List<Mentoring> mentorings = new ArrayList<>();
 
     public String getEmail() {
         return email;
@@ -66,5 +76,13 @@ public class User extends PanacheEntity {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public List<Mentoring> getMentorings() {
+        return mentorings;
+    }
+
+    public void setMentorings(List<Mentoring> mentorings) {
+        this.mentorings = mentorings;
     }
 }

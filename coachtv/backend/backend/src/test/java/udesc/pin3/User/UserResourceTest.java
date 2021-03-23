@@ -36,7 +36,8 @@ public class UserResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/user/login")
                 .then()
-                .statusCode(400);
+                .statusCode(400)
+                .body(is("E-mail ou senha incorreto. Tente novamente!"));
     }
 
     @Test
