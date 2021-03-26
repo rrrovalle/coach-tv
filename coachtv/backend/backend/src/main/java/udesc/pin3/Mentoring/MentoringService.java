@@ -6,6 +6,8 @@ import udesc.pin3.User.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @ApplicationScoped
 public class MentoringService {
@@ -18,5 +20,12 @@ public class MentoringService {
 
         mentoring.setCoach(user);
         mentoring.persist();
+    }
+
+    public List<MentoringDTO> getAllMentorings() {
+        List<Mentoring> mentorings = Mentoring.listAll();
+        List<MentoringDTO> result = new ArrayList<>();
+        mentorings.forEach(m -> result.add(new MentoringDTO(m)));
+        return result;
     }
 }

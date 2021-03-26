@@ -1,6 +1,5 @@
 package udesc.pin3.Mentoring;
 
-import udesc.pin3.User.User;
 import udesc.pin3.User.UserDTO;
 
 import javax.validation.constraints.NotBlank;
@@ -9,6 +8,7 @@ public class MentoringDTO {
 
     public MentoringDTO(Mentoring mentoring) {
         this.coach = new UserDTO(mentoring.getCoach());
+        this.coach.setId(mentoring.getCoach().id);
         this.title = mentoring.getTitle();
         this.rating = mentoring.getRating();
         this.section = mentoring.getSection();
