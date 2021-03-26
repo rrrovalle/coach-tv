@@ -10,9 +10,13 @@ import javax.transaction.Transactional;
 public class UserService {
 
     @Transactional
-    public void registerUser(UserDTO dto) {
+    public boolean registerUser(UserDTO dto) {
         User user = new User(dto);
+        if (User.find("email", user.getEmail()).stream().findFirst().isPresent()) {
+            return false;
+        }
         user.persist();
+        return true;
     }
 
     public User getUserById(long id) {

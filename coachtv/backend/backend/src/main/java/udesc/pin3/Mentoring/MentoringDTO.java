@@ -3,6 +3,8 @@ package udesc.pin3.Mentoring;
 import udesc.pin3.User.User;
 import udesc.pin3.User.UserDTO;
 
+import javax.validation.constraints.NotBlank;
+
 public class MentoringDTO {
 
     public MentoringDTO(Mentoring mentoring) {
@@ -27,12 +29,15 @@ public class MentoringDTO {
 
     private UserDTO coach;
 
+    @NotBlank(message = "O campo \"título\" deve ser preenchido. Tente novamente!")
     private String title;
 
+    @NotBlank(message = "O campo \"descrição\" deve ser preenchido. Tente novamente!")
     private String description;
 
     private float rating;
 
+    @NotBlank(message = "O campo \"seção\" deve ser preenchido. Tente novamente!")
     private String section;
 
     public UserDTO getCoach() {

@@ -25,6 +25,30 @@ public class UserResourceTest {
     }
 
     @Test
+    public void registerUserEmailAlreadyExistsTest() {
+        given()
+                .when()
+                .body(new UserDTO("guilherme@hotmail.com", "123", "Guilherme", LocalDate.now(), 0))
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                .post("/api/user/register")
+                .then()
+                .statusCode(400)
+                .body(is("O e-mail informado já existe no sistema. Tente novamente!"));
+    }
+
+    @Test
+    public void registerUserMissingEmailTest() {
+        given()
+                .when()
+                .body(new UserDTO(null, "123", "Guilherme", LocalDate.now(), 0))
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                .post("/api/user/register")
+                .then()
+                .statusCode(400)
+                .body(is("O campo \"e-mail\" deve ser preenchido!"));
+    }
+
+    @Test
     public void failLoginTest() {
         UserDTO dto = new UserDTO();
         dto.setPassword("wrong password");
