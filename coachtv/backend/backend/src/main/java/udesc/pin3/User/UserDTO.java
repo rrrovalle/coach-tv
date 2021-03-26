@@ -1,13 +1,16 @@
 package udesc.pin3.User;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 public class UserDTO {
 
     private long id;
 
+    @NotBlank(message = "O campo \"e-mail\" deve ser preenchido!")
     private String email;
 
+    @NotBlank(message = "O campo \"senha\" deve ser preenchido!")
     private String password;
 
     private String name;

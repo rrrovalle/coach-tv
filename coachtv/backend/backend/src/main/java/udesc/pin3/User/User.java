@@ -1,11 +1,13 @@
 package udesc.pin3.User;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import org.hibernate.validator.constraints.UniqueElements;
 import udesc.pin3.Mentoring.Mentoring;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
