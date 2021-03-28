@@ -5,6 +5,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -32,6 +33,11 @@ public class MentoringResource {
                     .collect(Collectors.joining(", "));
             return Response.status(HttpResponseStatus.BAD_REQUEST.code()).entity(message).build();
         }
+    }
+
+    @GET
+    public Response getAllMentorings() {
+        return Response.ok(mentoringService.getAllMentorings()).build();
     }
 
 }

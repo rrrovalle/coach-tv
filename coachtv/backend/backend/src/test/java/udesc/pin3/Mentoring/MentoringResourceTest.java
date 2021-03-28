@@ -55,10 +55,19 @@ public class MentoringResourceTest {
     public void registerMentoringTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(1), "title", "description", 5,
+                .body(new MentoringDTO(new UserDTO(2), "title", "description", 5,
                         MentoringSections.PROGRAMMING))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    public void getAllMentoringsTest() {
+        given()
+                .when()
+                .get("/api/mentoring")
                 .then()
                 .statusCode(200);
     }
