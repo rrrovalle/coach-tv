@@ -50,9 +50,6 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(String userDto) {
-    }
-
     public long getId() {
         return id;
     }
