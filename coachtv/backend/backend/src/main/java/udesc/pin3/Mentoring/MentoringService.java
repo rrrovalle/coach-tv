@@ -28,4 +28,13 @@ public class MentoringService {
         mentorings.forEach(m -> result.add(new MentoringDTO(m)));
         return result;
     }
+
+    public MentoringDTO getMentoringById(long id) {
+        PanacheQuery<PanacheEntityBase> result = Mentoring.find("id", id);
+        Mentoring mentoring = result.firstResult();
+
+        if (mentoring == null)
+            return null;
+        return new MentoringDTO(mentoring);
+    }
 }

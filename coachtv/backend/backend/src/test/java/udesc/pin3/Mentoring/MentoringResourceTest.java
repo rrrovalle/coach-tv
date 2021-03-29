@@ -55,7 +55,7 @@ public class MentoringResourceTest {
     public void registerMentoringTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(2), "title", "description", 5,
+                .body(new MentoringDTO(new UserDTO(1), "title", "description", 5,
                         MentoringSections.PROGRAMMING))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
@@ -68,6 +68,25 @@ public class MentoringResourceTest {
         given()
                 .when()
                 .get("/api/mentoring")
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    public void getMentoringByIdNotExistsTest() {
+        given()
+                .when()
+                .get("/api/mentoring/10")
+                .then()
+                .statusCode(200)
+                .body(is(""));
+    }
+
+    @Test
+    public void getMentoringByIdTest() {
+        given()
+                .when()
+                .get("/api/mentoring/4")
                 .then()
                 .statusCode(200);
     }
