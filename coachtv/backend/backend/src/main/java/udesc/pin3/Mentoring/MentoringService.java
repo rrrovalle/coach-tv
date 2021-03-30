@@ -37,4 +37,8 @@ public class MentoringService {
             return null;
         return new MentoringDTO(mentoring);
     }
+
+    public List<String> getSectins() {
+        return MentoringSections.getSections();
+    }
 }
