@@ -91,4 +91,14 @@ public class MentoringResourceTest {
                 .statusCode(200);
     }
 
+
+    @Test
+    public void getSectionsTest() {
+        given()
+                .when()
+                .get("/api/mentoring/sections")
+                .then()
+                .statusCode(200);
+    }
+
 }
