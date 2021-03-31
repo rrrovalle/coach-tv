@@ -76,8 +76,8 @@ public class User extends PanacheEntity {
         return credits;
     }
 
-    public void setCredits(int credits) {
-        this.credits = credits;
+    public void addCredits(int amount) {
+        this.credits += amount;
     }
 
     public List<Mentoring> getMentorings() {
