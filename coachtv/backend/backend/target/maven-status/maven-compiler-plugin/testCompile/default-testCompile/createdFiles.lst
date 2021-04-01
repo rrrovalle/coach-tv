@@ -2,3 +2,4 @@ META-INF/panache-archive.marker
 udesc/pin3/Mentoring/MentoringResourceTest.class
 udesc/pin3/User/UserResourceTest.class
 udesc/pin3/User/NativeUserResourceIT.class
+udesc/pin3/Credit/CreditResourceTest.class
