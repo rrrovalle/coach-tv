@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Front_example</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_rating">Stars</string>
+    <string name="username">Rodrigo Valle</string>
+    <string name="course_price">500/h</string>
+    <string name="course_desc">A course description is a brief summary of the significant learning experiences for a course.</string>
+    <string name="course_obs">Noticing, perception, helpfulness, measurement, scrutiny, check, cognizance, mark, note, regard and comment.</string>
+    <string name="edit_mentoring">...</string>
+    <string name="disable">Disable Mentoring</string>
+
+</resources>
