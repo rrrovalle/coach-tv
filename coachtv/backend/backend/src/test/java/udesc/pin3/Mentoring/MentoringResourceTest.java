@@ -86,7 +86,7 @@ public class MentoringResourceTest {
     public void getMentoringByIdTest() {
         given()
                 .when()
-                .get("/api/mentoring/4")
+                .get("/api/mentoring/5")
                 .then()
                 .statusCode(200);
     }

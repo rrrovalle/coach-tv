@@ -1,7 +1,12 @@
 package udesc.pin3.User;
 
+import udesc.pin3.Mentoring.Mentoring;
+import udesc.pin3.Mentoring.MentoringDTO;
+
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDTO {
 
@@ -18,6 +23,8 @@ public class UserDTO {
     private LocalDate birthday;
 
     private int credits;
+
+    private List<MentoringDTO> mentorings = new ArrayList<>();
 
     public UserDTO(String email, String password, String name, LocalDate birthday, int credits) {
         this.email = email;
@@ -39,12 +46,18 @@ public class UserDTO {
         this.id = id;
     }
 
-    public UserDTO(User user){
+    public UserDTO(User user) {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.name = user.getName();
         this.birthday = user.getBirthday();
         this.credits = user.getCredits();
+
+        for (Mentoring m : user.getMentorings()) {
+            MentoringDTO mentoringDTO = new MentoringDTO(
+                    new UserDTO(id), m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
+            mentorings.add(mentoringDTO);
+        }
     }
 
     public UserDTO() {
