@@ -1,5 +1,6 @@
 package udesc.pin3.Multipart;
 
+import io.netty.handler.codec.http.HttpResponseStatus;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import javax.inject.Inject;
@@ -18,9 +19,12 @@ public class MultipartResource {
     @Path("user/profile")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response setUserProfileImage(@MultipartForm MultipartBody data){
-        multipartService.setUserProfileImage(data);
-        return Response.ok().build();
+    public Response setUserProfileImage(@MultipartForm MultipartBody data) {
+        boolean success = multipartService.setUserProfileImage(data);
+        if (success)
+            return Response.ok().build();
+        else
+            return Response.status(HttpResponseStatus.BAD_REQUEST.code()).build();
     }
 
 }

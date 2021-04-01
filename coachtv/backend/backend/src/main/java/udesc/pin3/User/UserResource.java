@@ -4,11 +4,9 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -57,7 +55,7 @@ public class UserResource {
     @GET
     @Path("{id}")
     public Response getUserById(@PathParam("id") long id) {
-        return Response.ok(userService.getUserById(id)).build();
+        return Response.ok(userService.getUserDTOById(id)).build();
     }
 
 }

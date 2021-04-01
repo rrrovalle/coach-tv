@@ -1,8 +1,8 @@
 udesc/pin3/User/UserDTO.class
 udesc/pin3/User/UserResource.class
 udesc/pin3/Mentoring/MentoringService.class
-udesc/pin3/Multipart/MultipartService.class
 udesc/pin3/Credit/CreditPackDTO.class
+udesc/pin3/Multipart/MultipartService.class
 udesc/pin3/Mentoring/MentoringSections.class
 udesc/pin3/Mentoring/MentoringResource.class
 udesc/pin3/Credit/CreditResource.class

@@ -1,4 +1,5 @@
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Mentoring/MentoringDTO.java
+/home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Multipart/MultipartBody.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/User/UserDTO.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/User/UserService.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/User/User.java
@@ -9,5 +10,7 @@
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Mentoring/Mentoring.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Mentoring/MentoringResource.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Credit/CreditPackDTO.java
+/home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Multipart/MultipartService.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Mentoring/MentoringService.java
 /home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Credit/CreditPack.java
+/home/guilherme/Documentos/GitKraken/coach-tv/coachtv/backend/backend/src/main/java/udesc/pin3/Multipart/MultipartResource.java

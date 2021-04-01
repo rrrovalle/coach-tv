@@ -18,6 +18,6 @@ public class MultipartBody {
 
     @FormParam("userId")
     @PartType(MediaType.TEXT_PLAIN)
-    public String userId;
+    public Integer userId;
 
 }
