@@ -1,10 +1,13 @@
 udesc/pin3/User/UserDTO.class
 udesc/pin3/User/UserResource.class
 udesc/pin3/Mentoring/MentoringService.class
+udesc/pin3/Multipart/MultipartService.class
 udesc/pin3/Mentoring/MentoringSections.class
 udesc/pin3/Mentoring/MentoringResource.class
 udesc/pin3/Mentoring/Mentoring.class
 udesc/pin3/User/UserService.class
 udesc/pin3/Mentoring/MentoringDTO.class
+udesc/pin3/Multipart/MultipartResource.class
 META-INF/panache-archive.marker
 udesc/pin3/User/User.class
+udesc/pin3/Multipart/MultipartBody.class
