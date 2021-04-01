@@ -20,6 +20,7 @@ public class MultipartResource {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response setUserProfileImage(@MultipartForm MultipartBody data){
         multipartService.setUserProfileImage(data);
+        return Response.ok().build();
     }
 
 }

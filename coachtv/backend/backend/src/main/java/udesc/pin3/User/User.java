@@ -40,6 +40,11 @@ public class User extends PanacheEntity {
     @OneToMany(mappedBy = "coach")
     private List<Mentoring> mentorings = new ArrayList<>();
 
+    @Column(columnDefinition = "text")
+    private String profileImage;
+
+    private String profileImageExtension;
+
     public String getEmail() {
         return email;
     }
@@ -86,5 +91,21 @@ public class User extends PanacheEntity {
 
     public void setMentorings(List<Mentoring> mentorings) {
         this.mentorings = mentorings;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public String getProfileImageExtension() {
+        return profileImageExtension;
+    }
+
+    public void setProfileImageExtension(String profileImageExtension) {
+        this.profileImageExtension = profileImageExtension;
     }
 }
