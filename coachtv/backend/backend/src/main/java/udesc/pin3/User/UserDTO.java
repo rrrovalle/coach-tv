@@ -111,4 +111,12 @@ public class UserDTO {
     public void setCredits(int credits) {
         this.credits = credits;
     }
+
+    public List<MentoringDTO> getMentorings() {
+        return mentorings;
+    }
+
+    public void setMentorings(List<MentoringDTO> mentorings) {
+        this.mentorings = mentorings;
+    }
 }
