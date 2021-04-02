@@ -15,9 +15,4 @@ public class MultipartBody {
     @FormParam("fileName")
     @PartType(MediaType.TEXT_PLAIN)
     public String fileName;
-
-    @FormParam("userId")
-    @PartType(MediaType.TEXT_PLAIN)
-    public Integer userId;
-
 }

@@ -1,13 +1,11 @@
 package udesc.pin3.User;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import org.hibernate.validator.constraints.UniqueElements;
 import udesc.pin3.Mentoring.Mentoring;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +38,9 @@ public class User extends PanacheEntity {
     @OneToMany(mappedBy = "coach")
     private List<Mentoring> mentorings = new ArrayList<>();
 
-    @Column(columnDefinition = "text")
-    private String profileImage;
+    private byte[] bytesProfileImage;
 
-    private String profileImageExtension;
+    private String profileImageFilename;
 
     public String getEmail() {
         return email;
@@ -93,19 +90,19 @@ public class User extends PanacheEntity {
         this.mentorings = mentorings;
     }
 
-    public String getProfileImage() {
-        return profileImage;
+    public String getProfileImageFilename() {
+        return profileImageFilename;
     }
 
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
+    public void setProfileImageFilename(String profileImageFilename) {
+        this.profileImageFilename = profileImageFilename;
     }
 
-    public String getProfileImageExtension() {
-        return profileImageExtension;
+    public void setBytesProfileImage(byte[] file){
+        this.bytesProfileImage = file;
     }
 
-    public void setProfileImageExtension(String profileImageExtension) {
-        this.profileImageExtension = profileImageExtension;
+    public byte[] getBytesProfileImage() {
+        return bytesProfileImage;
     }
 }

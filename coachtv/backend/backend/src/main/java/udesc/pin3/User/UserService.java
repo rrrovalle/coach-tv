@@ -20,8 +20,7 @@ public class UserService {
     }
 
     public UserDTO getUserDTOById(long id) {
-        PanacheQuery<PanacheEntityBase> result = User.find("id", id);
-        User user =  result.firstResult();
+        User user = getUserById(id);
 
         if(user == null)
             return null;

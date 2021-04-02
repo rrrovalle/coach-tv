@@ -29,13 +29,17 @@ public class MentoringService {
         return result;
     }
 
-    public MentoringDTO getMentoringById(long id) {
-        PanacheQuery<PanacheEntityBase> result = Mentoring.find("id", id);
-        Mentoring mentoring = result.firstResult();
+    public MentoringDTO getMentoringDTOById(long id) {
+        Mentoring mentoring = getMentoringById(id);
 
         if (mentoring == null)
             return null;
         return new MentoringDTO(mentoring);
+    }
+
+    public Mentoring getMentoringById(long id) {
+        PanacheQuery<PanacheEntityBase> result = Mentoring.find("id", id);
+        return result.firstResult();
     }
 
     public List<String> getSectins() {
