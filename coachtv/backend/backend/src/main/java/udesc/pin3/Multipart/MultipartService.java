@@ -85,4 +85,15 @@ public class MultipartService {
         user.persist();
         return true;
     }
+
+    @Transactional
+    public boolean setMentoringEncodedPreviewImage(long mentoringId, String encodedImage) {
+        Mentoring mentoring = mentoringService.getMentoringById(mentoringId);
+        if (mentoring == null)
+            return false;
+
+        mentoring.setEncodedPreviewImage(encodedImage);
+        mentoring.persist();
+        return true;
+    }
 }

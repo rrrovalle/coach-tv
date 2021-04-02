@@ -18,7 +18,7 @@ public class MentoringResourceTest {
         given()
                 .when()
                 .body(new MentoringDTO(new UserDTO(1), null, "description", 5,
-                        MentoringSections.PROGRAMMING))
+                        MentoringSections.PROGRAMMING, ""))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
                 .then()
@@ -31,7 +31,7 @@ public class MentoringResourceTest {
         given()
                 .when()
                 .body(new MentoringDTO(new UserDTO(1), "title", null, 5,
-                        MentoringSections.PROGRAMMING))
+                        MentoringSections.PROGRAMMING, ""))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
                 .then()
@@ -43,7 +43,7 @@ public class MentoringResourceTest {
     public void registerMentoringMissingSectionTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(1), "title", "description", 5, null))
+                .body(new MentoringDTO(new UserDTO(1), "title", "description", 5, null, ""))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
                 .then()
@@ -56,7 +56,7 @@ public class MentoringResourceTest {
         given()
                 .when()
                 .body(new MentoringDTO(new UserDTO(1), "title", "description", 5,
-                        MentoringSections.PROGRAMMING))
+                        MentoringSections.PROGRAMMING, ""))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
                 .then()

@@ -3,10 +3,7 @@ package udesc.pin3.Mentoring;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import udesc.pin3.User.User;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Mentoring extends PanacheEntity {
@@ -37,6 +34,9 @@ public class Mentoring extends PanacheEntity {
     private byte[] previewImage;
 
     private String previewImageFilename;
+
+    @Column(columnDefinition = "text")
+    private String encodedPreviewImage;
 
     public User getCoach() {
         return coach;
@@ -92,5 +92,13 @@ public class Mentoring extends PanacheEntity {
 
     public void setPreviewImageFilename(String previewImageFilename) {
         this.previewImageFilename = previewImageFilename;
+    }
+
+    public String getEncodedPreviewImage() {
+        return encodedPreviewImage;
+    }
+
+    public void setEncodedPreviewImage(String encodedPreviewImage) {
+        this.encodedPreviewImage = encodedPreviewImage;
     }
 }

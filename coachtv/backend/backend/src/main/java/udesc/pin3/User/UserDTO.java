@@ -60,7 +60,7 @@ public class UserDTO {
 
         for (Mentoring m : user.getMentorings()) {
             MentoringDTO mentoringDTO = new MentoringDTO(
-                    new UserDTO(id), m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
+                    new UserDTO(id), m.getTitle(), m.getDescription(), m.getRating(), m.getSection(), m.getEncodedPreviewImage());
             mentorings.add(mentoringDTO);
         }
     }

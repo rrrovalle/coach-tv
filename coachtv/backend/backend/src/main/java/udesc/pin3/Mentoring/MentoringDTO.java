@@ -13,14 +13,16 @@ public class MentoringDTO {
         this.rating = mentoring.getRating();
         this.section = mentoring.getSection();
         this.description = mentoring.getDescription();
+        this.encodedPreviewImage = mentoring.getEncodedPreviewImage();
     }
 
-    public MentoringDTO(UserDTO coach, String title, String description, float rating, String section) {
+    public MentoringDTO(UserDTO coach, String title, String description, float rating, String section, String encodedPreviewImage) {
         this.coach = coach;
         this.title = title;
         this.description = description;
         this.rating = rating;
         this.section = section;
+        this.encodedPreviewImage = encodedPreviewImage;
     }
 
     public MentoringDTO(){
@@ -39,6 +41,8 @@ public class MentoringDTO {
 
     @NotBlank(message = "O campo \"seção\" deve ser preenchido. Tente novamente!")
     private String section;
+
+    private String encodedPreviewImage;
 
     public UserDTO getCoach() {
         return coach;
@@ -78,5 +82,13 @@ public class MentoringDTO {
 
     public void setSection(String section) {
         this.section = section;
+    }
+
+    public String getEncodedPreviewImage() {
+        return encodedPreviewImage;
+    }
+
+    public void setEncodedPreviewImage(String encodedPreviewImage) {
+        this.encodedPreviewImage = encodedPreviewImage;
     }
 }

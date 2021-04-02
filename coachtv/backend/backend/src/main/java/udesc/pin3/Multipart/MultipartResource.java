@@ -57,6 +57,17 @@ public class MultipartResource {
                 body.fileName + "\"").build();
     }
 
+    @Path("upload/mentoring/preview/encoded/{mentoringId}")
+    @POST
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response setMentoringEncodedPreviewImage(@PathParam("mentoringId") long mentoringId, String encodedImage) {
+        boolean success = multipartService.setMentoringEncodedPreviewImage(mentoringId, encodedImage);
+        if (success)
+            return Response.ok().build();
+        else
+            return Response.status(HttpResponseStatus.BAD_REQUEST.code()).build();
+    }
+
     @Path("upload/user/profile/encoded/{userId}")
     @POST
     @Consumes(MediaType.TEXT_PLAIN)
