@@ -74,4 +74,15 @@ public class MultipartService {
         body.file = new ByteArrayInputStream(mentoring.getPreviewImage());
         return body;
     }
+
+    @Transactional
+    public boolean setUserEncodedImage(long userId, String encodedImage) {
+        User user = userService.getUserById(userId);
+        if (user == null)
+            return false;
+
+        user.setEncodedImage(encodedImage);
+        user.persist();
+        return true;
+    }
 }

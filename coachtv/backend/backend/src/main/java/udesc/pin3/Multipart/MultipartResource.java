@@ -57,4 +57,15 @@ public class MultipartResource {
                 body.fileName + "\"").build();
     }
 
+    @Path("upload/user/profile/encoded/{userId}")
+    @POST
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response setUserEncodedImage(@PathParam("userId") long userId, String encodedImage) {
+        boolean success = multipartService.setUserEncodedImage(userId, encodedImage);
+        if (success)
+            return Response.ok().build();
+        else
+            return Response.status(HttpResponseStatus.BAD_REQUEST.code()).entity("Aconteceu um erro. Contate o suporte técnico").build();
+    }
+
 }

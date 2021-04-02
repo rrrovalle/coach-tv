@@ -42,6 +42,9 @@ public class User extends PanacheEntity {
 
     private String profileImageFilename;
 
+    @Column(columnDefinition = "text")
+    private String encodedImage;
+
     public String getEmail() {
         return email;
     }
@@ -104,5 +107,13 @@ public class User extends PanacheEntity {
 
     public byte[] getBytesProfileImage() {
         return bytesProfileImage;
+    }
+
+    public String getEncodedImage() {
+        return encodedImage;
+    }
+
+    public void setEncodedImage(String encodedImage) {
+        this.encodedImage = encodedImage;
     }
 }
