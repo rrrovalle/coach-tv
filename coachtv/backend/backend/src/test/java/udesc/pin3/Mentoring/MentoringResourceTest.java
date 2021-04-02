@@ -17,7 +17,7 @@ public class MentoringResourceTest {
     public void registerMentoringMissingTitleTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(1), null, "description", 5,
+                .body(new MentoringDTO(0, new UserDTO(1), null, "description", 5,
                         MentoringSections.PROGRAMMING))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
@@ -30,7 +30,7 @@ public class MentoringResourceTest {
     public void registerMentoringMissingDescriptionTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(1), "title", null, 5,
+                .body(new MentoringDTO(0, new UserDTO(1), "title", null, 5,
                         MentoringSections.PROGRAMMING))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
@@ -43,7 +43,7 @@ public class MentoringResourceTest {
     public void registerMentoringMissingSectionTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(1), "title", "description", 5, null))
+                .body(new MentoringDTO(0, new UserDTO(1), "title", "description", 5, null))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
                 .then()
@@ -55,7 +55,7 @@ public class MentoringResourceTest {
     public void registerMentoringTest() {
         given()
                 .when()
-                .body(new MentoringDTO(new UserDTO(1), "title", "description", 5,
+                .body(new MentoringDTO(0, new UserDTO(1), "title", "description", 5,
                         MentoringSections.PROGRAMMING))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/mentoring/register")
