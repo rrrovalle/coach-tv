@@ -37,7 +37,7 @@ public class UserService {
         User user = result.firstResult();
 
         if (user != null && user.getPassword().equals(dto.getPassword())) {
-            return new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits());
+            return new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits(), user.getEncodedImage());
         } else {
             return null;
         }

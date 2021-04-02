@@ -26,6 +26,8 @@ public class UserDTO {
 
     private List<MentoringDTO> mentorings = new ArrayList<>();
 
+    private String encodedImage;
+
     public UserDTO(String email, String password, String name, LocalDate birthday, int credits) {
         this.email = email;
         this.password = password;
@@ -34,12 +36,13 @@ public class UserDTO {
         this.credits = credits;
     }
 
-    public UserDTO(long id, String email, String name, LocalDate birthday, int credits) {
+    public UserDTO(long id, String email, String name, LocalDate birthday, int credits, String encodedImage) {
         this.id = id;
         this.email = email;
         this.name = name;
         this.birthday = birthday;
         this.credits = credits;
+        this.encodedImage = encodedImage;
     }
 
     public UserDTO(long id) {
@@ -53,6 +56,7 @@ public class UserDTO {
         this.name = user.getName();
         this.birthday = user.getBirthday();
         this.credits = user.getCredits();
+        this.encodedImage = user.getEncodedImage();
 
         for (Mentoring m : user.getMentorings()) {
             MentoringDTO mentoringDTO = new MentoringDTO(
@@ -118,5 +122,13 @@ public class UserDTO {
 
     public void setMentorings(List<MentoringDTO> mentorings) {
         this.mentorings = mentorings;
+    }
+
+    public String getEncodedImage() {
+        return encodedImage;
+    }
+
+    public void setEncodedImage(String encodedImage) {
+        this.encodedImage = encodedImage;
     }
 }
