@@ -34,6 +34,10 @@ public class Mentoring extends PanacheEntity {
 
     private float rating;
 
+    private byte[] previewImage;
+
+    private String previewImageFilename;
+
     public User getCoach() {
         return coach;
     }
@@ -72,5 +76,21 @@ public class Mentoring extends PanacheEntity {
 
     public void setSection(String section) {
         this.section = section;
+    }
+
+    public byte[] getPreviewImage() {
+        return previewImage;
+    }
+
+    public void setPreviewImage(byte[] previewImage) {
+        this.previewImage = previewImage;
+    }
+
+    public String getPreviewImageFilename() {
+        return previewImageFilename;
+    }
+
+    public void setPreviewImageFilename(String previewImageFilename) {
+        this.previewImageFilename = previewImageFilename;
     }
 }

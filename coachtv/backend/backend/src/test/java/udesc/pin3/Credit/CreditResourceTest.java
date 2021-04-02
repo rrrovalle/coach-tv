@@ -38,7 +38,7 @@ public class CreditResourceTest {
     public void purchaseCreditsUserNotFoundTest(){
         given()
                 .when()
-                .body(new CreditPackDTO(new UserDTO(2), "Pacote - 1500 Créditos"))
+                .body(new CreditPackDTO(new UserDTO(0), "Pacote - 1500 Créditos"))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/credits/purchase")
                 .then()

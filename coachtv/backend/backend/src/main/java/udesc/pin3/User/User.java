@@ -1,13 +1,11 @@
 package udesc.pin3.User;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import org.hibernate.validator.constraints.UniqueElements;
 import udesc.pin3.Mentoring.Mentoring;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +37,10 @@ public class User extends PanacheEntity {
 
     @OneToMany(mappedBy = "coach")
     private List<Mentoring> mentorings = new ArrayList<>();
+
+    private byte[] bytesProfileImage;
+
+    private String profileImageFilename;
 
     public String getEmail() {
         return email;
@@ -86,5 +88,21 @@ public class User extends PanacheEntity {
 
     public void setMentorings(List<Mentoring> mentorings) {
         this.mentorings = mentorings;
+    }
+
+    public String getProfileImageFilename() {
+        return profileImageFilename;
+    }
+
+    public void setProfileImageFilename(String profileImageFilename) {
+        this.profileImageFilename = profileImageFilename;
+    }
+
+    public void setBytesProfileImage(byte[] file){
+        this.bytesProfileImage = file;
+    }
+
+    public byte[] getBytesProfileImage() {
+        return bytesProfileImage;
     }
 }

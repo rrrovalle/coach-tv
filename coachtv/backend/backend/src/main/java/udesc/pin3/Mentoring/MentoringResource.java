@@ -50,7 +50,7 @@ public class MentoringResource {
     @GET
     @Path("{id}")
     public Response getMentoringById(@PathParam("id") long id) {
-        return Response.ok(mentoringService.getMentoringById(id)).build();
+        return Response.ok(mentoringService.getMentoringDTOById(id)).build();
     }
 
 }

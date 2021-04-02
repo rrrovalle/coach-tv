@@ -19,13 +19,17 @@ public class UserService {
         return true;
     }
 
-    public UserDTO getUserById(long id) {
-        PanacheQuery<PanacheEntityBase> result = User.find("id", id);
-        User user =  result.firstResult();
+    public UserDTO getUserDTOById(long id) {
+        User user = getUserById(id);
 
         if(user == null)
             return null;
         return new UserDTO(user);
+    }
+
+    public User getUserById(long id) {
+        PanacheQuery<PanacheEntityBase> result = User.find("id", id);
+        return result.firstResult();
     }
 
     public UserDTO login(UserDTO dto) {
