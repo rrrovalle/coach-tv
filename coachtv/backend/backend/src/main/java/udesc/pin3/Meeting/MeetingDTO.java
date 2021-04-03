@@ -26,12 +26,15 @@ public class MeetingDTO {
 
     private MentoringDTO mentoring;
 
-    public MeetingDTO(int duration, int price, LocalDateTime startTime, UserDTO customer, MentoringDTO mentoring) {
+    private String description;
+
+    public MeetingDTO(int duration, int price, LocalDateTime startTime, UserDTO customer, MentoringDTO mentoring, String description) {
         this.duration = duration;
         this.price = price;
         this.startTime = startTime;
         this.customer = customer;
         this.mentoring = mentoring;
+        this.description = description;
     }
 
     public MeetingDTO(Meeting meeting) {
@@ -39,6 +42,7 @@ public class MeetingDTO {
         this.duration = meeting.getDuration();
         this.price = meeting.getPrice();
         this.startTime = meeting.getStartTime();
+        this.description = meeting.getDescription();
 
         User user = meeting.getCoach();
         this.customer = new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits());
@@ -96,5 +100,13 @@ public class MeetingDTO {
 
     public void setMentoring(MentoringDTO mentoring) {
         this.mentoring = mentoring;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -20,7 +20,7 @@ public class MeetingResourceTest {
     public void scheduleMeetingSuccessfulTest() {
         given()
                 .when()
-                .body(new MeetingDTO(45, 0, LocalDateTime.now(), new UserDTO(1), new MentoringDTO(1)))
+                .body(new MeetingDTO(45, 0, LocalDateTime.now(), new UserDTO(1), new MentoringDTO(1),""))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/meeting/schedule/4/user/1")
                 .then()
@@ -31,7 +31,7 @@ public class MeetingResourceTest {
     public void scheduleMeetingNotEnoughCreditsTest() {
         given()
                 .when()
-                .body(new MeetingDTO(45, 10000, LocalDateTime.now(), new UserDTO(1), new MentoringDTO(1)))
+                .body(new MeetingDTO(45, 10000, LocalDateTime.now(), new UserDTO(1), new MentoringDTO(1), ""))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/meeting/schedule/4/user/1")
                 .then()

@@ -19,10 +19,13 @@ public class Meeting extends PanacheEntity {
 
     private LocalDateTime startTime;
 
+    private String description;
+
     public Meeting(MeetingDTO dto){
         this.duration = dto.getDuration();
         this.price = dto.getPrice();
         this.startTime = dto.getStartTime();
+        this.description = dto.getDescription();
     }
 
     public Meeting(){}
@@ -77,5 +80,13 @@ public class Meeting extends PanacheEntity {
 
     public User getCoach(){
         return mentoring.getCoach();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
