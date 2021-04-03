@@ -2,15 +2,16 @@ package udesc.pin3.Meeting;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import org.graalvm.collections.Pair;
-import udesc.pin3.Mentoring.MentoringDTO;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,13 @@ public class MeetingResource {
                     .collect(Collectors.joining(", "));
             return Response.status(HttpResponseStatus.BAD_REQUEST.code()).entity(message).build();
         }
+    }
+
+    @GET
+    @Path("user/{userId}")
+    public Response getMeetingsByUserId(@PathParam("userId") long userId) {
+        List<MeetingDTO> meetings = meetingService.getMeetingsByUserId(userId);
+        return Response.ok(meetings).build();
     }
 
 }

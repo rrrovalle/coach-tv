@@ -1,6 +1,8 @@
 package udesc.pin3.Meeting;
 
+import udesc.pin3.Mentoring.Mentoring;
 import udesc.pin3.Mentoring.MentoringDTO;
+import udesc.pin3.User.User;
 import udesc.pin3.User.UserDTO;
 
 import javax.validation.constraints.NotBlank;
@@ -17,7 +19,7 @@ public class MeetingDTO {
 
     private int price;
 
-//    @NotNull(message = "To schedule your meeting, the meeting start time should be provided.")
+    //    @NotNull(message = "To schedule your meeting, the meeting start time should be provided.")
     private LocalDateTime startTime;
 
     private UserDTO customer;
@@ -32,7 +34,21 @@ public class MeetingDTO {
         this.mentoring = mentoring;
     }
 
-    public MeetingDTO(){}
+    public MeetingDTO(Meeting meeting) {
+        this.id = meeting.id;
+        this.duration = meeting.getDuration();
+        this.price = meeting.getPrice();
+        this.startTime = meeting.getStartTime();
+
+        User user = meeting.getCoach();
+        this.customer = new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits());
+
+        Mentoring m = meeting.getMentoring();
+        mentoring = new MentoringDTO(m.id, new UserDTO(id), m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
+    }
+
+    public MeetingDTO() {
+    }
 
     public long getId() {
         return id;

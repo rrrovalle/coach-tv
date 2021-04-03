@@ -40,4 +40,13 @@ public class MeetingResourceTest {
                         "check you credits amount and try again!"));
     }
 
+    @Test
+    public void getMeetingsByUserId() {
+        given()
+                .when()
+                .get("/api/meeting/user/1")
+                .then()
+                .statusCode(200);
+    }
+
 }
