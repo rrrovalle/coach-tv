@@ -47,4 +47,11 @@ public class MeetingResource {
         return Response.ok(meetings).build();
     }
 
+    @GET
+    @Path("mentoring/{mentoringId}")
+    public Response getMeetingsByMentoringId(@PathParam("mentoringId") long mentoringId) {
+        List<MeetingDTO> meetings = meetingService.getMeetingsByMentoringId(mentoringId);
+        return Response.ok(meetings).build();
+    }
+
 }

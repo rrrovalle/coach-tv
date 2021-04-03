@@ -32,6 +32,11 @@ public class MeetingService {
 
         if (mentoringService.getMentoringById(mentoringId) != null) {
             meeting.setMentoring(mentoringService.getMentoringById(mentoringId));
+
+            if(meeting.getCustomer() == meeting.getCoach()){
+                return Pair.create(400, "You can't purchase your own mentoring. Please, select another mentoring!");
+            }
+
             meeting.persist();
             return Pair.create(200, "Meeting registered successfully!");
         } else {
@@ -41,6 +46,16 @@ public class MeetingService {
 
     public List<MeetingDTO> getMeetingsByUserId(long userId) {
         PanacheQuery<PanacheEntityBase> result = Meeting.find("customer_id", userId);
+        List<Meeting> meetings = result.list();
+
+        List<MeetingDTO> response = new ArrayList<>();
+        meetings.forEach(m -> response.add(new MeetingDTO(m)));
+
+        return response;
+    }
+
+    public List<MeetingDTO> getMeetingsByMentoringId(long mentoringId) {
+        PanacheQuery<PanacheEntityBase> result = Meeting.find("mentoring_id", mentoringId);
         List<Meeting> meetings = result.list();
 
         List<MeetingDTO> response = new ArrayList<>();

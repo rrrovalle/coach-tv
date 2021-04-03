@@ -41,10 +41,31 @@ public class MeetingResourceTest {
     }
 
     @Test
+    public void scheduleMeetingCoachAndCustomerSamePersonTest() {
+        given()
+                .when()
+                .body(new MeetingDTO(45, 0, LocalDateTime.now(), new UserDTO(1), null, ""))
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                .post("/api/meeting/schedule/5/user/1")
+                .then()
+                .statusCode(400)
+                .body(is("You can't purchase your own mentoring. Please, select another mentoring!"));
+    }
+
+    @Test
     public void getMeetingsByUserId() {
         given()
                 .when()
                 .get("/api/meeting/user/1")
+                .then()
+                .statusCode(200);
+    }
+
+    @Test
+    public void getMeetingsByMentoringId() {
+        given()
+                .when()
+                .get("/api/meeting/mentoring/5")
                 .then()
                 .statusCode(200);
     }
