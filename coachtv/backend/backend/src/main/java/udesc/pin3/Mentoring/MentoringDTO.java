@@ -26,6 +26,10 @@ public class MentoringDTO {
         this.section = section;
     }
 
+    public MentoringDTO(long id) {
+        this.id = id;
+    }
+
     public MentoringDTO() {
 
     }

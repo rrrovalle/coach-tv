@@ -25,6 +25,8 @@ public class Meeting extends PanacheEntity {
         this.startTime = dto.getStartTime();
     }
 
+    public Meeting(){}
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "mentoring_id")
     private Mentoring mentoring;

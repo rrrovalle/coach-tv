@@ -9,6 +9,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,12 +23,13 @@ public class MeetingResource {
     Validator validator;
 
     @POST
-    @Path("schedule")
-    public Response scheduleMeeting(MeetingDTO dto){
+    @Path("schedule/{mentoringId}/user/{userId}")
+    public Response scheduleMeeting(
+            @PathParam("mentoringId") long mentoringId, @PathParam("userId") long userId, MeetingDTO dto) {
         Set<ConstraintViolation<MeetingDTO>> violations = validator.validate(dto);
 
         if (violations.isEmpty()) {
-            Pair<Integer, String> response = meetingService.scheduleMeeting(dto);
+            Pair<Integer, String> response = meetingService.scheduleMeeting(mentoringId, userId, dto);
             return Response.status(response.getLeft()).entity(response.getRight()).build();
         } else {
             String message = violations.stream()

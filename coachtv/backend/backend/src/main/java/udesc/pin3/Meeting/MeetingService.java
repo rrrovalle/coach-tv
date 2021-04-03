@@ -6,6 +6,7 @@ import udesc.pin3.User.UserService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 @ApplicationScoped
 public class MeetingService {
@@ -15,12 +16,19 @@ public class MeetingService {
     @Inject
     MentoringService mentoringService;
 
-    public Pair<Integer, String> scheduleMeeting(MeetingDTO dto) {
+    @Transactional
+    public Pair<Integer, String> scheduleMeeting(long mentoringId, long userId, MeetingDTO dto) {
         Meeting meeting = new Meeting(dto);
-        meeting.setCustomer(userService.getUserById(dto.getCustomer().getId()));
+        meeting.setCustomer(userService.getUserById(userId));
 
-        if(mentoringService.getMentoringById(dto.getMentoring().getId()) != null){
-            meeting.setMentoring(mentoringService.getMentoringById(dto.getMentoring().getId()));
+        if(meeting.getCustomer().getCredits() < meeting.getPrice()){
+            return Pair.create(400, "You don't have enough credits to schedule this meeting. Please, " +
+                    "check you credits amount and try again!");
+        }
+
+        if (mentoringService.getMentoringById(mentoringId) != null) {
+            meeting.setMentoring(mentoringService.getMentoringById(mentoringId));
+            meeting.persist();
             return Pair.create(200, "Meeting registered successfully!");
         } else {
             return Pair.create(400, "The mentoring provided is not valid. Try again!");

@@ -4,25 +4,35 @@ import udesc.pin3.Mentoring.MentoringDTO;
 import udesc.pin3.User.UserDTO;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class MeetingDTO {
 
     private long id;
 
-    @NotBlank(message = "To schedule your meeting, the field \"duration\" cannot be empty.")
+    @NotNull(message = "To schedule your meeting, the field \"duration\" cannot be empty.")
     private int duration;
 
     private int price;
 
-    @NotBlank(message = "To schedule your meeting, the meeting start time should be provided.")
+//    @NotNull(message = "To schedule your meeting, the meeting start time should be provided.")
     private LocalDateTime startTime;
 
-    @NotBlank(message = "To schedule your meeting, the customer identification should be provided.")
     private UserDTO customer;
 
-    @NotBlank(message = "To schedule your meeting, the mentoring identification should be provided.")
     private MentoringDTO mentoring;
+
+    public MeetingDTO(int duration, int price, LocalDateTime startTime, UserDTO customer, MentoringDTO mentoring) {
+        this.duration = duration;
+        this.price = price;
+        this.startTime = startTime;
+        this.customer = customer;
+        this.mentoring = mentoring;
+    }
+
+    public MeetingDTO(){}
 
     public long getId() {
         return id;
