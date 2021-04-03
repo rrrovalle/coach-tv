@@ -37,6 +37,7 @@ public class MeetingService {
                 return Pair.create(400, "You can't purchase your own mentoring. Please, select another mentoring!");
             }
 
+            meeting.getCustomer().setCredits(meeting.getCustomer().getCredits() - meeting.getPrice());
             meeting.persist();
             return Pair.create(200, "Meeting registered successfully!");
         } else {

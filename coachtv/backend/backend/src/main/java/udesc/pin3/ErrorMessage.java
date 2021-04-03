@@ -2,17 +2,17 @@ package udesc.pin3;
 
 public class ErrorMessage {
 
-    String errorMessage;
+    String message;
 
-    public ErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
+    public ErrorMessage(String message) {
+        this.message = message;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
