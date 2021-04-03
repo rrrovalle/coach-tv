@@ -1,6 +1,7 @@
 package udesc.pin3.User;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
+import udesc.pin3.ErrorMessage;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
@@ -45,7 +46,7 @@ public class UserResource {
         if (dto == null) {
             return Response
                     .status(HttpResponseStatus.BAD_REQUEST.code())
-                    .entity("E-mail ou senha incorreto. Tente novamente!")
+                    .entity(new ErrorMessage("E-mail ou senha incorreto. Tente novamente!"))
                     .build();
         } else {
             return Response.ok(dto).build();
