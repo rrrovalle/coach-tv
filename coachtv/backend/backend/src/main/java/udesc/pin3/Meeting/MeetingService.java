@@ -79,6 +79,7 @@ public class MeetingService {
         if(user.id.equals(meeting.getCoach().id) || user.id.equals(meeting.getCustomer().id)){
             if(meeting.getStartTime().minusMinutes(5).isBefore(LocalDateTime.now())){
                 // Join video-call room
+                // Return IP of other call members
                 return Pair.create(200, "This video-call room is not ready yet.");
             } else {
                 return Pair.create(400, "This video-call room is not ready yet.");

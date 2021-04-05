@@ -58,7 +58,7 @@ public class MeetingResource {
     @Path("join/{meetingId}/{userId}")
     public Response joinMeetingRoom(@PathParam("meetingId") long meetingId, @PathParam("userId") long userId){
         Pair<Integer, Object> response = meetingService.joinMeetingRoom(meetingId, userId);
-        return Response.ok().build();
+        return Response.status(response.getLeft()).entity(response.getRight()).build();
     }
 
 }
