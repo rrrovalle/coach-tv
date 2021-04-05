@@ -44,7 +44,7 @@ public class MeetingDTO {
         this.startTime = meeting.getStartTime();
         this.description = meeting.getDescription();
 
-        User user = meeting.getCoach();
+        User user = meeting.getCustomer();
         this.customer = new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits());
 
         Mentoring m = meeting.getMentoring();

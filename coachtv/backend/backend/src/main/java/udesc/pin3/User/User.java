@@ -1,11 +1,16 @@
 package udesc.pin3.User;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import udesc.pin3.Mentoring.Mentoring;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +36,9 @@ public class User extends PanacheEntity {
 
     private String name;
 
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @Past
     private LocalDate birthday;
 
     private int credits;
@@ -102,7 +110,7 @@ public class User extends PanacheEntity {
         this.profileImageFilename = profileImageFilename;
     }
 
-    public void setBytesProfileImage(byte[] file){
+    public void setBytesProfileImage(byte[] file) {
         this.bytesProfileImage = file;
     }
 
