@@ -4,11 +4,13 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import org.graalvm.collections.Pair;
 import udesc.pin3.Mentoring.MentoringService;
+import udesc.pin3.User.User;
 import udesc.pin3.User.UserService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,5 +65,26 @@ public class MeetingService {
         meetings.forEach(m -> response.add(new MeetingDTO(m)));
 
         return response;
+    }
+
+    public Meeting getMeetingById(long id){
+        PanacheQuery<PanacheEntityBase> result = Meeting.find("id", id);
+        return result.firstResult();
+    }
+
+    public Pair<Integer, Object> joinMeetingRoom(long meetingId, long userId) {
+        Meeting meeting = getMeetingById(meetingId);
+        User user = userService.getUserById(userId);
+
+        if(user.id.equals(meeting.getCoach().id) || user.id.equals(meeting.getCustomer().id)){
+            if(meeting.getStartTime().minusMinutes(5).isBefore(LocalDateTime.now())){
+                // Join video-call room
+                return Pair.create(200, "This video-call room is not ready yet.");
+            } else {
+                return Pair.create(400, "This video-call room is not ready yet.");
+            }
+        } else {
+            return Pair.create(400, "You are not authorized to join this meeting.");
+        }
     }
 }
