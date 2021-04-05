@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class User extends PanacheEntity {
         this.email = dto.getEmail();
         this.password = dto.getPassword();
         this.name = dto.getName();
-        this.birthday = dto.getBirthday();
+        this.birthday = LocalDate.parse(dto.getBirthday(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.credits = dto.getCredits();
     }
 
@@ -36,9 +37,6 @@ public class User extends PanacheEntity {
 
     private String name;
 
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    @Past
     private LocalDate birthday;
 
     private int credits;

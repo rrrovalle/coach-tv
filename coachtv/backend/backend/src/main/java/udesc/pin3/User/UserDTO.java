@@ -5,6 +5,7 @@ import udesc.pin3.Mentoring.MentoringDTO;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +21,15 @@ public class UserDTO {
 
     private String name;
 
-    private LocalDate birthday;
+    private String birthday;
 
     private int credits;
 
     private List<MentoringDTO> mentorings = new ArrayList<>();
 
-    public UserDTO(String email, String password, String name, LocalDate birthday, int credits) {
+    private final String format = "dd/MM/yyyy";
+
+    public UserDTO(String email, String password, String name, String birthday, int credits) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -38,7 +41,7 @@ public class UserDTO {
         this.id = id;
         this.email = email;
         this.name = name;
-        this.birthday = birthday;
+        this.birthday = birthday.format(DateTimeFormatter.ofPattern(format));
         this.credits = credits;
     }
 
@@ -51,7 +54,7 @@ public class UserDTO {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.name = user.getName();
-        this.birthday = user.getBirthday();
+        this.birthday = user.getBirthday().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.credits = user.getCredits();
 
         for (Mentoring m : user.getMentorings()) {
@@ -96,11 +99,11 @@ public class UserDTO {
         this.name = name;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
