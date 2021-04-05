@@ -17,7 +17,7 @@ public class UserResourceTest {
     public void registerUserTest() {
         given()
                 .when()
-                .body(new UserDTO("guilherme@hotmail.com", "123", "Guilherme", LocalDate.now(), 500))
+                .body(new UserDTO("guilherme@hotmail.com", "123", "Guilherme", "06/04/2000", 500))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/user/register")
                 .then()
@@ -28,7 +28,7 @@ public class UserResourceTest {
     public void registerUserEmailAlreadyExistsTest() {
         given()
                 .when()
-                .body(new UserDTO("guilherme@hotmail.com", "123", "Guilherme", LocalDate.now(), 0))
+                .body(new UserDTO("guilherme@hotmail.com", "123", "Guilherme", "06/04/2000", 0))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/user/register")
                 .then()
@@ -40,7 +40,7 @@ public class UserResourceTest {
     public void registerUserMissingEmailTest() {
         given()
                 .when()
-                .body(new UserDTO(null, "123", "Guilherme", LocalDate.now(), 0))
+                .body(new UserDTO(null, "123", "Guilherme", "06/04/2000", 0))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .post("/api/user/register")
                 .then()

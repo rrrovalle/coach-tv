@@ -62,7 +62,7 @@ public class CreditFragment extends Fragment {
                     creditPackList = response.body();
                     getCreditsPackOptions(creditPackList);
                 } else {
-                    Message.printMessage(getContext(),"Sorry, we couldn't find an account with that e-mail or password. Please double-check and try again.");
+                    Message.printMessage(getContext(),"Oops, something happened differently than expected. Try again");
                 }
             }
             @Override
@@ -96,8 +96,8 @@ public class CreditFragment extends Fragment {
                     UserDTO user = response.body();
                     updateUserBalance(user.getCredits());
                 } else {
-                    Message.printMessage(getContext(),response.errorBody().byteStream()+"");
-                    //Message.printMessage(getContext(),"Sorry, we couldn't find an account with that e-mail or password. Please double-check and try again.");
+                    //Message.printMessage(getContext(),response.errorBody().byteStream()+"");
+                    Message.printMessage(getContext(),"Sorry, we couldn't retrieve your balance. Try again");
                 }
             }
             @Override

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Meeting extends PanacheEntity {
@@ -24,7 +25,7 @@ public class Meeting extends PanacheEntity {
     public Meeting(MeetingDTO dto){
         this.duration = dto.getDuration();
         this.price = dto.getPrice();
-        this.startTime = dto.getStartTime();
+        this.startTime = LocalDateTime.parse(dto.getStartTime(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         this.description = dto.getDescription();
     }
 

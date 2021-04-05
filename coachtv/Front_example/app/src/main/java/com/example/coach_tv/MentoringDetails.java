@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.Utils.Message;
 import com.example.coach_tv.model.MeetingDTO;
 import com.example.coach_tv.model.UserDTO;
@@ -23,7 +24,7 @@ import retrofit2.Response;
 public class MentoringDetails extends AppCompatActivity {
 
     private Button btnSave;
-    private ImageView imgScreenReturn;
+    private ImageView imgScreenReturn, mentoringImage;
 
     private TextView txtCourse;
     private TextView txtSection;
@@ -33,7 +34,6 @@ public class MentoringDetails extends AppCompatActivity {
     private TextView idObs;
 
     private int idMentoring;
-    private int idUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class MentoringDetails extends AppCompatActivity {
         txtSection  = findViewById(R.id.idSection);
         txtCoach    = findViewById(R.id.txtCoach);
         txtPrice    = findViewById(R.id.idTextPrice);
+        mentoringImage = findViewById(R.id.idMentoringImage);
 
         Intent in= getIntent();
         Bundle b = in.getExtras();
@@ -61,7 +62,8 @@ public class MentoringDetails extends AppCompatActivity {
             txtSection.setText(section);
             txtDesc.setText(obs);
             txtCoach.setText(coach);
-            txtPrice.setText(price);
+            txtPrice.setText(price+"/h");
+            mentoringImage.setImageResource(IconManager.getIcon(section));
         }
         initComponents();
         addListeners();
@@ -95,8 +97,8 @@ public class MentoringDetails extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), AppActivity.class));
                     } else {
                         Log.wtf("else",response.errorBody().byteStream()+"");
-                        Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
-                        //Message.printMessage(getApplicationContext(),"Sorry, you can't purchase your own mentoring. Please, select another me.");
+                        //Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
+                        Message.printMessage(getApplicationContext(),"Sorry, you can't purchase your own mentoring.");
                     }
                 }
 

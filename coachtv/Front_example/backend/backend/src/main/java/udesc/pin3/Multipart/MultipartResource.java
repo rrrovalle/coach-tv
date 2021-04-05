@@ -56,4 +56,5 @@ public class MultipartResource {
         return Response.ok().entity(body.file).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" +
                 body.fileName + "\"").build();
     }
+
 }

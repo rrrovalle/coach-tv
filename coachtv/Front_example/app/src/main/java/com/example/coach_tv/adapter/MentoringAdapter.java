@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coach_tv.R;
 import com.example.coach_tv.ScheduleActivity;
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.model.MentoringDTO;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class MentoringAdapter extends RecyclerView.Adapter<MentoringAdapter.View
         // to set data to textview and imageview of each card layout
         MentoringDTO model = mentoringArrayList.get(position);
         holder.courseNameTV.setText(model.getTitle());
-        //holder.imgMentoring.setImageResource(model.getImage());
+        holder.imgMentoring.setImageResource(IconManager.getIcon(model.getSection()));
     }
 
     @Override

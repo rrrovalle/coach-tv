@@ -49,7 +49,8 @@ public class ScheduleActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     getAllSchedules(response.body());
                 } else {
-                    Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
+                    Message.printMessage(getApplicationContext(),"Oops, something happened differently than expected. Try again");
+                    //Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
                 }
             }
             @Override

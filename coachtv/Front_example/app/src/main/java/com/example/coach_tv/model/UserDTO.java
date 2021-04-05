@@ -23,7 +23,7 @@ public class UserDTO {
 
     @SerializedName("birthday")
     @Expose
-    private LocalDate birthday;
+    private String birthday;
 
     @SerializedName("credits")
     @Expose
@@ -39,7 +39,7 @@ public class UserDTO {
 
     public UserDTO(){}
 
-    public UserDTO(String email, String password, String name, LocalDate birthday, int credits) {
+    public UserDTO(String email, String password, String name, String birthday, int credits) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -79,11 +79,11 @@ public class UserDTO {
         this.name = name;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

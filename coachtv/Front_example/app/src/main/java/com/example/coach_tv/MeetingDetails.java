@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.Utils.Message;
 import com.example.coach_tv.fragment.MeetingFragment;
 import com.example.coach_tv.model.MentoringDTO;
@@ -28,6 +29,7 @@ public class MeetingDetails extends AppCompatActivity {
     private TextView txtCourse, txtObservations, edtDate, txtPrice,
             txtMentoringDesc, txtSection, txtCoach;
     private long mentoringId;
+    private ImageView imgMentoring;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class MeetingDetails extends AppCompatActivity {
         txtPrice = findViewById(R.id.idTextPrice);
         txtSection = findViewById(R.id.idSection);
         txtCoach   = findViewById(R.id.idCoach);
+        imgMentoring = findViewById(R.id.idMentoringImage);
         Intent iin= getIntent();
         Bundle b = iin.getExtras();
 
@@ -78,8 +81,8 @@ public class MeetingDetails extends AppCompatActivity {
             txtMentoringDesc.setText(mtDesc);
             txtSection.setText(section);
             txtPrice.setText(300+"/h");
-            Log.wtf("nome",coach);
             txtCoach.setText(coach);
+            imgMentoring.setImageResource(IconManager.getIcon(section));
         }
     }
 }

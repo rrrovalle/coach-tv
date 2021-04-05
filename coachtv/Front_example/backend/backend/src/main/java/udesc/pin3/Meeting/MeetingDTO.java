@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MeetingDTO {
 
@@ -19,8 +20,8 @@ public class MeetingDTO {
 
     private int price;
 
-    //    @NotNull(message = "To schedule your meeting, the meeting start time should be provided.")
-    private LocalDateTime startTime;
+    @NotNull(message = "To schedule your meeting, the meeting start time should be provided.")
+    private String startTime;
 
     private UserDTO customer;
 
@@ -28,7 +29,9 @@ public class MeetingDTO {
 
     private String description;
 
-    public MeetingDTO(int duration, int price, LocalDateTime startTime, UserDTO customer, MentoringDTO mentoring, String description) {
+    private final String format = "dd/MM/yyyy HH:mm";
+
+    public MeetingDTO(int duration, int price, String startTime, UserDTO customer, MentoringDTO mentoring, String description) {
         this.duration = duration;
         this.price = price;
         this.startTime = startTime;
@@ -41,14 +44,15 @@ public class MeetingDTO {
         this.id = meeting.id;
         this.duration = meeting.getDuration();
         this.price = meeting.getPrice();
-        this.startTime = meeting.getStartTime();
+        this.startTime = meeting.getStartTime().format(DateTimeFormatter.ofPattern(format));
         this.description = meeting.getDescription();
 
-        User user = meeting.getCoach();
+        User user = meeting.getCustomer();
         this.customer = new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits());
 
         Mentoring m = meeting.getMentoring();
-        mentoring = new MentoringDTO(m.id, new UserDTO(id), m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
+        mentoring = new MentoringDTO(m.id, new UserDTO(meeting.getCoach().id, meeting.getCoach().getName()),
+                m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
     }
 
     public MeetingDTO() {
@@ -78,11 +82,11 @@ public class MeetingDTO {
         this.price = price;
     }
 
-    public LocalDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 

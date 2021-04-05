@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.Utils.Message;
 import com.example.coach_tv.fragment.MentoringFragment;
 import com.example.coach_tv.model.MentoringDTO;
@@ -60,7 +63,6 @@ public class CourseManagerActivity extends AppCompatActivity {
 
     public void initComponents(){
         imgReturn         = findViewById(R.id.imgReturn);
-        addIcon           = findViewById(R.id.plusIcon);
         mentoringImg      = findViewById(R.id.mentoringImage);
         btnSave           = findViewById(R.id.btnSaveProfile);
         selectSection     = findViewById(R.id.sections_select);
@@ -69,11 +71,16 @@ public class CourseManagerActivity extends AppCompatActivity {
     }
 
     public void addListeners(Context context){
-        addIcon.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent, IMG_REQUEST);
+        selectSection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Log.wtf("ext", selectSection.getSelectedItem().toString());
+                mentoringImg.setImageResource(IconManager.getIcon(selectSection.getSelectedItem().toString()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
         });
         imgReturn.setOnClickListener(v -> {
             Intent intent = new Intent(CourseManagerActivity.this, MentoringFragment.class);
@@ -96,8 +103,8 @@ public class CourseManagerActivity extends AppCompatActivity {
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.isSuccessful()){
                             Message.printMessage(getApplicationContext(),"Your mentoring has been successfully offered!");
-                            Intent intent = new Intent(CourseManagerActivity.this, MentoringFragment.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); finish();
+                            Intent intent = new Intent(context, AppActivity.class);
+                            startActivity(intent);
                         }else{
                             Message.printMessage(getApplicationContext(), response.errorBody().byteStream()+"");
                         }
@@ -114,20 +121,20 @@ public class CourseManagerActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data); 
-        int RESULT_OK = -1;
-        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null){
-            Uri path = data.getData();
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
-                mentoringImg.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        int RESULT_OK = -1;
+//        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null){
+//            Uri path = data.getData();
+//            try {
+//                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
+//                mentoringImg.setImageBitmap(bitmap);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     private void fillSelect(Context c){
         Call<List<String>> call = new RetrofitInitializer().setMentoringService().getAllSections();

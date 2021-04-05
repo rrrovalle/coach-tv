@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coach_tv.MentoringDetails;
 import com.example.coach_tv.R;
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.model.MentoringDTO;
 
 import java.util.ArrayList;
@@ -47,8 +48,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Viewholder
         //holder.courseCredits.setText(""+model.getCredits());
         holder.courseSection.setText(model.getSection());
         holder.courseCredits.setText("300");
-        int id = context.getResources().getIdentifier("res:drawable/" + "code.png", null, null);
-        holder.courseIV.setImageResource(id);
+        holder.courseIV.setImageResource(IconManager.getIcon(model.getSection()));
     }
 
     @Override

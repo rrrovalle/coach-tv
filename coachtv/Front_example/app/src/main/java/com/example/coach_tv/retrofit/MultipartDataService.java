@@ -22,6 +22,6 @@ public interface MultipartDataService {
     @Multipart
     @POST("multipart/upload/user/profile/{userId}")
     Call<Void> uploadProfilePicture(@Path("userId") long userId,
-                                    @Part("fileName") RequestBody name,
+                                    @Part("fileName") RequestBody fileName,
                                     @Part MultipartBody.Part data);
 }

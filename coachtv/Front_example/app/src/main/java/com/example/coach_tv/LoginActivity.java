@@ -69,8 +69,8 @@ public class LoginActivity  extends AppCompatActivity {
                             saveUserDetails(sharedPreferences, response.body());
                             showMainScreen();
                         } else {
-                            Log.wtf("ERROR", response.errorBody().byteStream()+"");
-                            Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
+                            Message.printMessage(getApplicationContext(),"Oops, something happened differently than expected. Try again");
+                            //Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
                         }
                     }
                     @Override

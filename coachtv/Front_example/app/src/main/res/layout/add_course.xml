@@ -291,13 +291,12 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/mentoringImage"
-            android:layout_width="277dp"
+            android:layout_width="350dp"
             android:layout_height="159dp"
             android:layout_marginTop="56dp"
-            android:src="@drawable/round_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"  />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imgReturn"
@@ -309,18 +308,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
-
-        <ImageView
-            android:id="@+id/plusIcon"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="192dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.643"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_addround"
             tools:ignore="VectorDrawableCompat" />
 
 

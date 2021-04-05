@@ -2,11 +2,15 @@ package com.example.coach_tv;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coach_tv.Utils.Mask;
 import com.example.coach_tv.Utils.Message;
 import com.example.coach_tv.Utils.Validate;
 import com.example.coach_tv.model.UserDTO;
@@ -33,11 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     /**
      * Screen fields
      **/
-    private TextView txtName;
-    private TextView txtBirthday;
-    private TextView txtEmail;
-    private TextView txtPassword;
-    private TextView txtConfirmPassword;
+    private EditText txtName, txtBirthday, txtEmail, txtPassword, txtConfirmPassword;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -55,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
         /** TextViews **/
         txtName = findViewById(R.id.txtName);
         txtBirthday = findViewById(R.id.txtBirthday);
+        txtBirthday.addTextChangedListener(Mask.insert("##/##/####", txtBirthday));
         txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPassword);
         txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
@@ -71,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                     user.setName(txtName.getText().toString());
                     user.setEmail(txtEmail.getText().toString());
                     user.setPassword(txtPassword.getText().toString());
-                    user.setBirthday(null);
+                    user.setBirthday(txtBirthday.getText().toString());
                     user.setCredits(0);
 
                     Call<Void> call = new RetrofitInitializer().setUserService().register(user);
@@ -84,7 +86,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent intent = new Intent(context, MainActivity.class);
                                 startActivity(intent);
                             } else {
-                                Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
+                                Message.printMessage(getApplicationContext(),"Oops, something happened differently than expected. Try again");
+                                //Message.printMessage(getApplicationContext(),response.errorBody().byteStream()+"");
                             }
                         }
 

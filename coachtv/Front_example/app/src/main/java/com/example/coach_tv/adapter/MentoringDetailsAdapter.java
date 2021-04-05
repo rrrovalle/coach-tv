@@ -4,14 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.coach_tv.R;
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.model.MeetingDTO;
 
 import java.util.ArrayList;
@@ -42,9 +45,9 @@ public class MentoringDetailsAdapter extends RecyclerView.Adapter<MentoringDetai
         Bundle b = intent.getExtras();
             String coach = (String) b.get("STRING_COACH");
         MeetingDTO model = meetingArrayList.get(position);
+        Log.wtf("id",model.getId()+"");
         holder.courseNameTV.setText("Meeting - "+ (position+1));
         holder.courseDesc.setText(model.getDescription());
-        //holder.courseDate.setText(model.getDate());
         holder.coursePrice.setText(300+"/h");
         holder.courseUser.setText(model.getCustomer().getName());
     }

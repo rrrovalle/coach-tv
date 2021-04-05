@@ -178,10 +178,10 @@ public class ProfileFragment extends Fragment {
 
     private void uploadImage(File image){
         long userId             = getUser().getId();
-        RequestBody fileName    = RequestBody.create(MediaType.parse("multipart/form-data*"), image.getAbsolutePath());
+        RequestBody fileName    = RequestBody.create(MediaType.parse("text/plain"), image.getAbsolutePath());
 
         MultipartBody.Part profilePic = null;
-        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data*"), image);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), image);
         profilePic = MultipartBody.Part.createFormData("data", image.getName(), requestFile);
 
         Call<Void> call = new RetrofitInitializer().setMultipartService().uploadProfilePicture(userId, fileName, profilePic);

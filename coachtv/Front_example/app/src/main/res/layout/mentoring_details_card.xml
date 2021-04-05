@@ -402,10 +402,10 @@
 
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="277dp"
-            android:layout_height="159dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/idMentoringImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

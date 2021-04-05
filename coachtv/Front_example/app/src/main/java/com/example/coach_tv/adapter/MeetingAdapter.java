@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coach_tv.MeetingDetails;
 import com.example.coach_tv.R;
+import com.example.coach_tv.Utils.IconManager;
 import com.example.coach_tv.model.MeetingDTO;
 
 import java.util.ArrayList;
@@ -39,9 +40,9 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.Viewhold
     public void onBindViewHolder(@NonNull MeetingAdapter.Viewholder holder, int position) {
         MeetingDTO model = meetingArrayList.get(position);
         holder.courseName.setText(model.getMentoring().getTitle());
-//        holder.courseDate.setText(model.getDate());
-//        holder.coursePrice.setText("" + model.getCredits());
- //       holder.cardMeetingImg.setImageResource(model.getImage());
+//      holder.courseDate.setText(model.getDate());
+//      holder.coursePrice.setText("" + model.getCredits());
+        holder.cardMeetingImg.setImageResource(IconManager.getIcon(model.getMentoring().getSection()));
     }
 
     @Override
@@ -62,11 +63,11 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.Viewhold
                 String strDesc    = meetingArrayList.get(getAdapterPosition()).getDescription();
                 String strCoach   = meetingArrayList.get(getAdapterPosition()).getMentoring().getCoach().getName();
                 String strMentoringSection   = meetingArrayList.get(getAdapterPosition()).getMentoring().getSection();
-                String strMentoringDesc   = meetingArrayList.get(getAdapterPosition()).getMentoring().getDescription();
-                long idMent = meetingArrayList.get(getAdapterPosition()).getId();
+                String strMentoringDesc      = meetingArrayList.get(getAdapterPosition()).getMentoring().getDescription();
+                long idMentoring = meetingArrayList.get(getAdapterPosition()).getId();
                 Intent intent = new Intent(v.getContext(), MeetingDetails.class);
                 intent.putExtra("STRING_NAME", strName);
-                intent.putExtra("LONG_ID", idMent);
+                intent.putExtra("LONG_ID", idMentoring);
                 intent.putExtra("STRING_DESC", strDesc);
                 intent.putExtra("STRING_SECTION", strMentoringSection);
                 intent.putExtra("STRING_MENTORING_DESC", strMentoringDesc);
