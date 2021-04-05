@@ -49,7 +49,8 @@ public class MeetingDTO {
         this.customer = new UserDTO(user.id, user.getEmail(), user.getName(), user.getBirthday(), user.getCredits());
 
         Mentoring m = meeting.getMentoring();
-        mentoring = new MentoringDTO(m.id, new UserDTO(id), m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
+        mentoring = new MentoringDTO(m.id, new UserDTO(meeting.getCoach().id, meeting.getCoach().getName()),
+                m.getTitle(), m.getDescription(), m.getRating(), m.getSection());
     }
 
     public MeetingDTO() {

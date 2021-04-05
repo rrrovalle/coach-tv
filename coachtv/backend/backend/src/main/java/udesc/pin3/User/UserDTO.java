@@ -49,6 +49,11 @@ public class UserDTO {
         this.id = id;
     }
 
+    public UserDTO(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public UserDTO(User user) {
         this.id = user.id;
         this.email = user.getEmail();
